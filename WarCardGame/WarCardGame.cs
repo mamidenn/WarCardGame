@@ -20,7 +20,7 @@ namespace WarCardGame
                 if (cards[0].CompareTo(cards[1]) != 0)
                 {
                     winner = cards[0].CompareTo(cards[1]) > 0 ? 0 : 1;
-                    var loser = winner == 0 ? 1 : 0;
+                    var loser = winner ^ 1;
                     players[winner].TakeCard(cards[winner]);
                     players[winner].TakeCard(cards[loser]);
                 }
@@ -69,7 +69,7 @@ namespace WarCardGame
             {
                 winner = warCards[0].Peek().CompareTo(warCards[1].Peek()) > 0 ? 0 : 1;
             }
-            var loser = winner == 0 ? 1 : 0;
+            var loser = winner ^ 1;
             players[winner].TakeCards(warCards[winner].ToArray());
             players[winner].TakeCards(warCards[loser].ToArray());
 
